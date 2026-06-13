@@ -12,9 +12,12 @@ class StateManager:
         if self.pending_state:
             self.current_state = self.pending_state
             self.pending_state = None
+            
         self.current_state.update()
 
     def draw(self):
+        if self.pending_state:
+            return
         self.current_state.draw()
 
 

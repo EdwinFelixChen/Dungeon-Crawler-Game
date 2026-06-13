@@ -68,11 +68,11 @@ class BossFight(BaseState):
         if self.game.boss.state_duration <= 0:
             self.game.boss.change_state()
 
-        self.game.combat.handle_deaths()
-
         self.handle_treasures()
 
         self.change_state()
+
+        self.game.combat.handle_deaths()
 
     def draw(self):
         self.game.renderer.draw_inventory()

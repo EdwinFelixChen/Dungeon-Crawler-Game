@@ -25,6 +25,8 @@ class Lobby(BaseState):
         
     def update(self):
         if not self.player_spawned:
+            self.game.player.alive = True
+            self.game.player.hp = self.game.player.max_hp
             self.game.player.x = self.lobby_x + self.lobby_width / 2
             self.game.player.y = self.lobby_y + self.lobby_height / 2
             self.create_portal()

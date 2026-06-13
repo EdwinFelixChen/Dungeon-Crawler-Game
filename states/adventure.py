@@ -32,13 +32,13 @@ class Adventure(BaseState):
 
         self.game.movement.handle_wall_collisions()
 
-        self.game.combat.handle_deaths()
-
         self.handle_treasures()
 
         self.check_room_cleared()
 
         self.change_state()
+
+        self.game.combat.handle_deaths()
 
     def draw(self):
         self.game.renderer.draw_inventory()
@@ -55,14 +55,14 @@ class Adventure(BaseState):
         if len(uncleared_rooms) == 1:
             self.final_room = uncleared_rooms[0]
 
-        if not uncleared_rooms:
+        if not uncleared_rooms and self.final_room is not None:
             if self.final_room.room_field.contains(self.game.player.hitbox):
                 self.spawned_rooms = False
                 self.game.boss_room = self.final_room
                 self.game.state_manager.change_state(self.game.pre_boss_fight_state)
 
     def generate_rooms(self):
-        self.game.dungeongenerator.generate(2)
+        self.game.dungeongenerator.generate(1)
         self.game.rooms = self.game.dungeongenerator.convert(400)
         self.game.dungeongenerator.add_doors(self.game.rooms)
         self.game.start_room = self.game.rooms[0]

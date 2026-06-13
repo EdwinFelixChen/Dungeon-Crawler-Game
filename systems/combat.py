@@ -92,3 +92,19 @@ class Combat:
         if self.game.boss:
             if not self.game.boss.alive:
                 self.game.boss = None
+
+        if not self.game.player.alive:
+            self.game.boss_room = None
+            self.game.rooms = []
+            self.game.enemies.clear()
+            self.game.projectiles.clear()
+            self.game.treasures.clear()
+            self.game.boss = None
+
+            # reset state flags so they work fresh next time
+            self.game.adventure_state.spawned_rooms = False
+            self.game.adventure_state.final_room = None
+            self.game.boss_fight_state.spawned = False
+            self.game.pre_boss_fight_state.duration = None
+            self.game.adventure_state.final_room = None
+            self.game.state_manager.change_state(self.game.lobby_state)

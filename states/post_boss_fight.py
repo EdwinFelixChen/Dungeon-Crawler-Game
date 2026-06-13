@@ -57,6 +57,8 @@ class PostBossFight(BaseState):
             self.game.boss = None
 
             # reset adventure so it generates fresh rooms next time
+            self.game.boss_fight_state.spawned = False
+            self.game.pre_boss_fight_state.duration = None
             self.game.adventure_state.spawned_rooms = False
             self.game.adventure_state.final_room = None
             self.game.state_manager.change_state(self.game.lobby_state)
