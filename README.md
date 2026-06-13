@@ -29,5 +29,11 @@ python3 main.py
 - Game state management (state machine pattern)
 - Collision detection and resolution
 - Procedural room generation with door placement
-- Entity-component design
+- Inheritance and simple enemy AI mechanics
 - Pygame rendering and camera system
+- System architechture, OOP, and world design
+
+## Features to be Added
+- More levels and enemy types
+- Better graphics and UI
+- Clear scoring system

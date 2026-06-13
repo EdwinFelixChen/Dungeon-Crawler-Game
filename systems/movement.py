@@ -14,9 +14,6 @@ class Movement:
 
         self.game.player.move(self.game.keys)
 
-        # knockback is applied in adventure.update() via combat.update_knockback()
-        # don't apply it here too, or it doubles up
-
         self.game.player.update_hitbox()
 
         #enemy
@@ -55,7 +52,7 @@ class Movement:
         min_y = min(past_top_edge, past_bottom_edge)
 
         if min_x < min_y:
-            # push out on X axis — pick the side with less penetration
+            # push out on X axis
             if past_left_edge < past_right_edge:
                 entity.x -= past_left_edge
             else:
@@ -89,7 +86,7 @@ class Movement:
         elif entity.hitbox.bottom > rect.bottom:
             entity.y -= entity.hitbox.bottom - rect.bottom
 
-            
+
 
 
                 
