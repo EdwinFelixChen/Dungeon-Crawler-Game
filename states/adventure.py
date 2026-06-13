@@ -62,7 +62,7 @@ class Adventure(BaseState):
                 self.game.state_manager.change_state(self.game.pre_boss_fight_state)
 
     def generate_rooms(self):
-        self.game.dungeongenerator.generate(1)
+        self.game.dungeongenerator.generate(10)
         self.game.rooms = self.game.dungeongenerator.convert(400)
         self.game.dungeongenerator.add_doors(self.game.rooms)
         self.game.start_room = self.game.rooms[0]
