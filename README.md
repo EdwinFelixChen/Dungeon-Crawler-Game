@@ -1,6 +1,6 @@
 # Dungeon Crawler Game
 
-A procedural dungeon crawler built with Pygame. Clear rooms, fight enemies, defeat the boss, and escape.
+A procedural dungeon crawler built with Pygame. Objective is to clear rooms, fight enemies, defeat the boss, and escape.
 
 ## Controls
 
